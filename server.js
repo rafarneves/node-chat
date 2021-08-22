@@ -4,6 +4,9 @@ const path = require('path')
 const app = express();
 const server = require('http').createServer(app);
 const io = require('socket.io')(server);
+const porta = process.env.PORT || 8000
+
+const host = process.env.HEROKU_APP_NAME ? `https://${process.env.HEROKU_APP_NAME}.herokuapp.com` : "http://localhost" 
 
 app.use(express.static(path.join(__dirname, 'public')));
 app.set('views', path.join(__dirname, 'public'));
@@ -27,4 +30,12 @@ io.on('connection', socket => {
     });
 });
 
-server.listen(process.env.PORT || 3000);
+server.listen(porta, function(){
+    const portaStr = porta === 80 ? '' : ':' + porta;
+
+    if(process.env.HEROKU_APP_NAME) {
+        console.log('Servidor iniciado. Abra o navegador em ' + host);
+    } else {
+        console.log('Servidor iniciado. Abra o navegador em ' + host + portaStr);
+    }
+});
