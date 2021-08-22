@@ -10,12 +10,22 @@ html, body {
   
   #chat {
     height: 100%;
-    display: flex;
+    display: none;
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    background-color: #252422;
   }
-  
+  #inicio {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    position: absolute;
+    flex-direction: column;
+    width: 100%;
+  }
+
   input {
     width: 600px;
     border: 1px solid #ddd;
@@ -25,7 +35,7 @@ html, body {
   }
   
   button {
-    width: 600px;
+    width: 100px;
     height: 50px;
     font-size: 14px;
     background: #069;
@@ -33,13 +43,36 @@ html, body {
     line-height: 50px;
     font-weight: bold;
     color: #FFF;
-    margin-top: 10px;
   }
   
   .messages {
     width: 600px;
     height: 400px;
     margin: 20px 0;
-    border: 1px solid #ddd;
     padding: 20px;
+    border-radius: 30px;
+    background-color: #403D39;
+  }
+
+  .messages .message {
+    color: #FFFCF2;
+  }
+
+  .msg-submit {
+    display: flex;
+    width: 600px;
+    justify-content: space-between;
+  }
+
+  .msg-submit button {
+    width: 50px;
+    border-radius: 50%;
+    border: none;
+    background: #EB5E28;
+  }
+
+  input[name='message'] {
+    width: 530px;
+    border-radius: 30px;
+    background: #CCC5B9;
   }
